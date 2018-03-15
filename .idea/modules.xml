@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api/api-module.iml" filepath="$PROJECT_DIR$/api/api-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/domain/domain-module.iml" filepath="$PROJECT_DIR$/domain/domain-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/funiversity-delux.iml" filepath="$PROJECT_DIR$/funiversity-delux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jar/jar-module.iml" filepath="$PROJECT_DIR$/jar/jar-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/service-module.iml" filepath="$PROJECT_DIR$/service/service-module.iml" />
+    </modules>
+  </component>
+</project>

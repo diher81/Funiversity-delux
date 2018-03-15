@@ -1,0 +1,18 @@
+### OS Junk ###
+.DS_Store
+
+### IntelliJ ###
+.idea
+out
+*.iml
+
+### Gradle ###
+.gradle
+build
+
+### Class files ###
+*.class
+
+node_modules/
+bin/
+obj/

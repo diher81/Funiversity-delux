@@ -1,0 +1,6 @@
+be\dihertalem\funiversity\api\professor\ProfessorDto.class
+be\dihertalem\funiversity\api\course\CourseMapper.class
+be\dihertalem\funiversity\api\course\CourseDto.class
+be\dihertalem\funiversity\api\professor\ProfessorMapper.class
+be\dihertalem\funiversity\api\professor\ProfessorController.class
+be\dihertalem\funiversity\api\course\CourseController.class

@@ -1,7 +1,5 @@
 package be.dihertalem.funiversity.domain;
 
-import java.util.Random;
-
 public class Professor {
 
     private int id;
@@ -9,7 +7,7 @@ public class Professor {
     private String lastName;
 
     public Professor(String firstName, String lastName) {
-        this.id = (int) (Math.random() * 50 +1);
+        this.id = (int) (Math.random() * 5000 + 1);
         this.firstName = firstName;
         this.lastName = lastName;
     }
