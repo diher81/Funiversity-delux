@@ -3,10 +3,7 @@ package be.dihertalem.funiversity.api.professor;
 import be.dihertalem.funiversity.domain.Professor;
 import be.dihertalem.funiversity.service.ProfessorService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -24,13 +21,35 @@ public class ProfessorController {
         this.service = service;
     }
 
+//    @GetMapping(produces = "application/json")
+//    @ResponseStatus(HttpStatus.OK)
+//    public List<ProfessorDto> getProfessors(){
+//        List<ProfessorDto> professorDtos = new ArrayList<ProfessorDto>();
+//        for(Professor professor : service.getProfessors().values()) {
+//            professorDtos.add(ProfessorMapper.professorMapper(professor));
+//        }
+//        return professorDtos;
+//    }
+
+//    @GetMapping(path = "/{/id}", produces = "application/json")
+//    @ResponseStatus(HttpStatus.OK)
+//    public ProfessorDto getProfessors(@PathVariable("id") int id){
+//        return ProfessorMapper.professorMapper(service.getProfessor(id));
+//    }
+
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public List<ProfessorDto> getProfessors(){
-        List<ProfessorDto> professorDtos = new ArrayList<ProfessorDto>();
+    public List<Professor> getProfessors(){
+        List<Professor> professors = new ArrayList<Professor>();
         for(Professor professor : service.getProfessors().values()) {
-            professorDtos.add(ProfessorMapper.professorMapper(professor));
+            professors.add(professor);
         }
-        return professorDtos;
+        return professors;
+    }
+
+    @GetMapping(path = "/{id}", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public Professor getProfessors(@PathVariable("id") int id){
+        return service.getProfessor(id);
     }
 }
