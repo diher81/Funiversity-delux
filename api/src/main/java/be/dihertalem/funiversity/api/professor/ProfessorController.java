@@ -21,35 +21,20 @@ public class ProfessorController {
         this.service = service;
     }
 
-//    @GetMapping(produces = "application/json")
-//    @ResponseStatus(HttpStatus.OK)
-//    public List<ProfessorDto> getProfessors(){
-//        List<ProfessorDto> professorDtos = new ArrayList<ProfessorDto>();
-//        for(Professor professor : service.getProfessors().values()) {
-//            professorDtos.add(ProfessorMapper.professorMapper(professor));
-//        }
-//        return professorDtos;
-//    }
-
-//    @GetMapping(path = "/{/id}", produces = "application/json")
-//    @ResponseStatus(HttpStatus.OK)
-//    public ProfessorDto getProfessors(@PathVariable("id") int id){
-//        return ProfessorMapper.professorMapper(service.getProfessor(id));
-//    }
-
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public List<Professor> getProfessors(){
-        List<Professor> professors = new ArrayList<Professor>();
+    public List<ProfessorDto> getProfessors(){
+        List<ProfessorDto> professorDtos = new ArrayList<ProfessorDto>();
         for(Professor professor : service.getProfessors().values()) {
-            professors.add(professor);
+            professorDtos.add(ProfessorMapper.professorMapper(professor));
         }
-        return professors;
+        return professorDtos;
     }
 
     @GetMapping(path = "/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public Professor getProfessors(@PathVariable("id") int id){
-        return service.getProfessor(id);
+    public ProfessorDto getProfessor(@PathVariable("id") int id){
+        return ProfessorMapper.professorMapper(service.getProfessor(id));
     }
+    
 }

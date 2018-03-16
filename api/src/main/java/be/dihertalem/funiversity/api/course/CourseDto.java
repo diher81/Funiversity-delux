@@ -15,4 +15,24 @@ public class CourseDto {
         this.category = category;
         this.professorId = professorId;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getStudyPoints() {
+        return studyPoints;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getProfessorId() {
+        return professorId;
+    }
 }
