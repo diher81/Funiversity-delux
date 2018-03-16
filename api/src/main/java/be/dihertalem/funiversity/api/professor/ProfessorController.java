@@ -26,7 +26,11 @@ public class ProfessorController {
 
     @GetMapping(produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public Map<Integer, Professor> getProfessors(){
-        return service.getProfessors();
+    public List<ProfessorDto> getProfessors(){
+        List<ProfessorDto> professorDtos = new ArrayList<ProfessorDto>();
+        for(Professor professor : service.getProfessors().values()) {
+            professorDtos.add(ProfessorMapper.professorMapper(professor));
+        }
+        return professorDtos;
     }
 }

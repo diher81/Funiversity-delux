@@ -5,11 +5,13 @@ public class Professor {
     private int id;
     private String firstName;
     private String lastName;
+    private static int numberOfProfessors;
 
     public Professor(String firstName, String lastName) {
-        this.id = (int) (Math.random() * 5000 + 1);
+        this.id = numberOfProfessors;
         this.firstName = firstName;
         this.lastName = lastName;
+        numberOfProfessors++;
     }
 
     public int getId() {

@@ -5,6 +5,7 @@ import ch.qos.logback.core.joran.action.IncludeAction;
 import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Repository {
@@ -70,12 +71,12 @@ public class Repository {
 
     private void createCourses() {
         portuguese = new Course("POR", 5, "Language", tania.getId());
-        swimmmingWithDolphins = new Course("DOL", 5, "sports", tania.getId());
-        biology = new Course("BIO", 5, "science", tania.getId());
-        pingpong = new Course("PIN", 5, "sports", tania.getId());
-        physics = new Course("PHY", 5, "science", tania.getId());
-        blackHoles = new Course("BLA", 5, "science", tania.getId());
-        java = new Course("JAV", 5, "programming", tania.getId());
+        swimmmingWithDolphins = new Course("DOL", 2, "sports", tania.getId());
+        biology = new Course("BIO", 5, "science", dirk.getId());
+        pingpong = new Course("PIN", 3, "sports", dirk.getId());
+        physics = new Course("PHY", 4, "science", albert.getId());
+        blackHoles = new Course("BLA", 4, "science", stephen.getId());
+        java = new Course("JAV", 4, "IT", niels.getId());
     }
 
     public Map<Integer, Professor> getProfessors() {
@@ -133,7 +134,42 @@ public class Repository {
         course.setCategory(newCategory);
     }
 
+    public void updateCourseProfessor(int courseId, int professorId) {
+        Course course = courses.get(courseId);
+        course.setProfessorId(professorId);
+    }
+
     public Course getCourse(int id) {
         return courses.get(id);
+    }
+
+    public List<Course> getCoursesFromCategory(String category) {
+        ArrayList<Course> coursesFromCategory = new ArrayList<Course>();
+        for (Course course : courses.values()) {
+            if (course.getCategory().equals(category)) {
+                coursesFromCategory.add(course);
+            }
+        }
+        return coursesFromCategory;
+    }
+
+    public List<Course> getCoursesWithProfessor(int professorId) {
+        ArrayList<Course> coursesWithProfessor = new ArrayList<Course>();
+        for (Course course : courses.values()) {
+            if (course.getCategory().equals(professorId)) {
+                coursesWithProfessor.add(course);
+            }
+        }
+        return coursesWithProfessor;
+    }
+
+    public List<Course> getCoursesWithStudyPoints(int studyPoints) {
+        ArrayList<Course> coursesWithStudyPoints = new ArrayList<Course>();
+        for (Course course : courses.values()) {
+            if (course.getStudyPoints() == studyPoints) {
+                coursesWithStudyPoints.add(course);
+            }
+        }
+        return coursesWithStudyPoints;
     }
 }

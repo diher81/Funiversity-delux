@@ -7,13 +7,15 @@ public class Course {
     private int studyPoints;
     private String category;
     private int professorId;
+    private static int numberOfCourses;
 
     public Course(String name, int studyPoints, String category, int professorId) {
-        this.id = (int) (Math.random() * 5000 + 1);
+        this.id = numberOfCourses;
         this.name = name;
         this.studyPoints = studyPoints;
         this.category = category;
         this.professorId = professorId;
+        numberOfCourses++;
     }
 
     public int getId() {

@@ -10,7 +10,7 @@ import java.util.Map;
 @Named
 public class ProfessorService {
 
-    Repository repo = new Repository();
+    private Repository repo = new Repository();
 
     public Map<Integer, Professor> getProfessors(){
         try {
@@ -26,6 +26,22 @@ public class ProfessorService {
         } catch (IllegalArgumentException ex){
             return new Professor("Unknown first name", "Unknown last name");
         }
+    }
+
+    public void createProfessor(String firstName, String lastName) {
+        repo.addNewProfessor(new Professor(firstName, lastName));
+    }
+
+    public void deleteProfessor(int professorId) {
+        repo.deleteProfessor(professorId);
+    }
+
+    public void updateProfessorFirstName(int id, String firstName) {
+        repo.updateFirstName(id, firstName);
+    }
+
+    public void updateProfessorLastName(int id, String lastName) {
+        repo.updateLastName(id, lastName);
     }
 
 }
