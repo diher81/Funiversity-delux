@@ -36,5 +36,5 @@ public class ProfessorController {
     public ProfessorDto getProfessor(@PathVariable("id") int id){
         return ProfessorMapper.professorMapper(service.getProfessor(id));
     }
-    
+
 }
